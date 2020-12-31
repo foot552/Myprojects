@@ -1,0 +1,79 @@
+[NEAT]
+fitness_criterion     = max     #Do we want birds with max fitness or min fitness?
+fitness_threshold     = 100     #What fitness number should we reach to be confident that the AI is good
+pop_size              = 100     #Population size
+reset_on_extinction   = False   #If we have a series going extinct(Eg: species of neurons 3) should we reset the program
+
+[DefaultGenome]                 #In NEAT, we call our population(in this case, birds) Genomes
+# node activation options       #The Input neurons and output neurons in NEAT are called Input Nodes nd Output Nodes
+activation_default      = tanh  # Activation Function...BTW In NEAT , Genes are the connections between the Nodes(neurons)
+activation_mutate_rate  = 0.0   #Probability a Population member will get a new Activation Function
+activation_options      = tanh
+
+# node aggregation options
+aggregation_default     = sum
+aggregation_mutate_rate = 0.0
+aggregation_options     = sum
+
+# node bias options
+bias_init_mean          = 0.0
+bias_init_stdev         = 1.0
+bias_max_value          = 30.0  #Whats the max value our Bias can have?
+bias_min_value          = -30.0 #Whats the min value our bias can have?
+bias_mutate_power       = 0.5
+bias_mutate_rate        = 0.7
+bias_replace_rate       = 0.1
+
+# genome compatibility options
+compatibility_disjoint_coefficient = 1.0
+compatibility_weight_coefficient   = 0.5
+
+# connection add/remove rates
+conn_add_prob           = 0.5  #Probability we will add a new connection(between input layer and output layer)
+conn_delete_prob        = 0.5  #Probability we will remove a new connection(between input layer and output layer)
+
+# connection enable options
+enabled_default         = True  #Can we have connections that are enables or disabled
+enabled_mutate_rate     = 0.01  #Probability we will have to de activate a connection 
+
+feed_forward            = True
+initial_connection      = full
+
+# node add/remove rates
+node_add_prob           = 0.2  #Node add Probability
+node_delete_prob        = 0.2  #Node delete Probability
+
+# network parameters
+num_hidden              = 0
+num_inputs              = 3   #How many input layers
+num_outputs             = 1   #How many output Layers
+
+# node response options
+response_init_mean      = 1.0
+response_init_stdev     = 0.0
+response_max_value      = 30.0
+response_min_value      = -30.0
+response_mutate_power   = 0.0
+response_mutate_rate    = 0.0
+response_replace_rate   = 0.0
+
+# connection weight options
+weight_init_mean        = 0.0
+weight_init_stdev       = 1.0
+weight_max_value        = 30
+weight_min_value        = -30
+weight_mutate_power     = 0.5
+weight_mutate_rate      = 0.8
+weight_replace_rate     = 0.1
+
+[DefaultSpeciesSet]
+compatibility_threshold = 3.0
+
+[DefaultStagnation]
+species_fitness_func = max
+max_stagnation       = 20
+species_elitism      = 2
+
+[DefaultReproduction]
+elitism            = 2
+survival_threshold = 0.2
